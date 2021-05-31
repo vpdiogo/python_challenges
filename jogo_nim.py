@@ -15,7 +15,6 @@ def computador_escolhe_jogada(n, m):
 def usuario_escolhe_jogada(n, m):
     j = m + 1
     while j > m:
-        print()
         j = int(input("Quantas peças você vai tirar? "))
         if j > m:
             print()
@@ -44,7 +43,7 @@ def partida():
         else:
         	print("Você tirou", pecas_u, "peças.")
         if pecas_res_u == 1:
-            print("Agora resta apenas uma peça no tabuleiro")
+            print("Agora resta apenas uma peça no tabuleiro.")
         else:
             print("Agora restam", pecas_res_u, "peças no tabuleiro.")
         count = pecas_res_u
@@ -57,26 +56,27 @@ def partida():
             else:
             	print("O computador tirou", pecas_c, "peças.")
             if pecas_res_c == 1:
-                print("Agora resta apenas uma peça no tabuleiro")
-            else:
-                print("Agora restam", pecas_res_c, "peças no tabuleiro.")
-            count = pecas_res_c
-            if pecas_res_c == 0:
+                print("Agora resta apenas uma peça no tabuleiro.")
+            elif pecas_res_c == 0:
                 print("Fim do jogo! O computador ganhou!")
                 placar = 1
             else:
+                print("Agora restam", pecas_res_c, "peças no tabuleiro.")
+            count = pecas_res_c
+            if pecas_res_c != 0:
                 pecas_u = usuario_escolhe_jogada(count, m)
                 pecas_res_u = count - pecas_u
                 print()
                 print("Você tirou", pecas_u, "peças.")
                 if pecas_res_u == 1:
-                    print("Agora resta apenas uma peça no tabuleiro")
+                    print("Agora resta apenas uma peça no tabuleiro.")
+                elif pecas_res_u == 0:
+                    print("Fim do jogo! O usuário ganhou!")
+                    placar = 2
                 else:
                     print("Agora restam", pecas_res_u, "no tabuleiro.")
                 count = pecas_res_u
-                if pecas_res_u == 0:
-                    print("Fim do jogo! O usuário ganhou!")
-                    placar = 2
+
         return placar
         
     else:
@@ -90,7 +90,7 @@ def partida():
         else:
         	print("O computador tirou", pecas_c, "peças.")
         if pecas_res_c == 1:
-            print("Agora resta apenas uma peça no tabuleiro")
+            print("Agora resta apenas uma peça no tabuleiro.")
         else:
             print("Agora restam", pecas_res_c, "peças no tabuleiro.")
         count = pecas_res_c
@@ -103,29 +103,30 @@ def partida():
             else:
             	print("Você tirou", pecas_u, "peças.")
             if pecas_res_u == 1:
-                print("Agora resta apenas uma peça no tabuleiro")
-            else:
-                print("Agora restam", pecas_res_u, "peças no tabuleiro.")
-            count = pecas_res_u
-            if pecas_res_u == 0:
+                print("Agora resta apenas uma peça no tabuleiro.")
+            elif pecas_res_u == 0:
                 print("Fim do jogo! O usuário ganhou!")
                 placar = 2
             else:
+                print("Agora restam", pecas_res_u, "peças no tabuleiro.")
+            count = pecas_res_u
+            if pecas_res_u != 0:
                 pecas_c = computador_escolhe_jogada(count, m)
                 pecas_res_c = count - pecas_c
                 print()
                 if pecas_c == 1:
-                	print("O Computador tirou uma peça.")
+                	print("O computador tirou uma peça.")
                 else:
-                	print("O Computador tirou", pecas_c, "peças.")
+                	print("O computador tirou", pecas_c, "peças.")
                 if pecas_res_c == 1:
-                    print("Agora resta apenas uma peça no tabuleiro")
+                    print("Agora resta apenas uma peça no tabuleiro.")
+                elif pecas_res_c == 0:
+                    print("Fim do jogo! O computador ganhou!")
+                    placar = 1
                 else:
                     print("Agora restam", pecas_res_c, "peças no tabuleiro.")
                 count = pecas_res_c
-                if pecas_res_c == 0:
-                    print("Fim do jogo! O computador ganhou!")
-                    placar = 1
+
         return placar
     
 def main():
